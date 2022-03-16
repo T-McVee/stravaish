@@ -8,3 +8,5 @@ Created for the final assignment in The Odin Project. This is my attempt at recr
 - React Router
 - Styled Components
 - Mapbox GL JS
+- React Map GL
+- toGeoJSON
