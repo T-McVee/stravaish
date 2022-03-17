@@ -17,4 +17,5 @@ export const theme = {
     normal: '2px 2px 2px #000000',
   },
   fontSize: ['0.5rem', '1rem', '1.5rem', '2rem'],
+  spacing: [4, 8, 12, 16, 20, 24, 28, 32],
 };

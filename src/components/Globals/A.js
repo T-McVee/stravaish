@@ -12,7 +12,7 @@ const Wrapper = styled.a`
     cursor: pointer;
   }
 
-  li & {
+  li > & {
     color: ${({ theme }) => theme.colors.black};
 
     :hover {

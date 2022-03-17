@@ -78,6 +78,6 @@ const Wrapper = styled.div`
 
 const LinkBlock = styled.div`
   & > * {
-    margin-right: 1rem;
+    margin-right: 2.5rem;
   }
 `;
