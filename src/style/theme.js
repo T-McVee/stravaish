@@ -1,3 +1,5 @@
+const fontSize = ['10.5px', '14px', '21px', '28px', '35px'];
+
 export const theme = {
   colors: {
     orange: '#fc5200',
@@ -16,6 +18,11 @@ export const theme = {
   shadows: {
     normal: '2px 2px 2px #000000',
   },
-  fontSize: ['0.5rem', '1rem', '1.5rem', '2rem'],
-  spacing: [4, 8, 12, 16, 20, 24, 28, 32],
+  fontSize: {
+    small: fontSize[0],
+    normal: fontSize[1],
+    large: fontSize[2],
+    xl: fontSize[3],
+  },
+  spacing: ['4px', '8px', '12px', '16px', '20px', '24px', '28px', '32px'],
 };
