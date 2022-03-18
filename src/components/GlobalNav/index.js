@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import { Dropdown } from './Dropdown';
 import { Logo } from './Logo';
+import { A } from '../Globals/A';
 
 const index = () => {
   return (
     <Wrapper className="wrapper">
       <nav>
-        <LinkBlock className="left">
-          <Logo>STRAVAish</Logo>
+        <LinkBlock>
+          <A>
+            <Logo>STRAVAish</Logo>
+          </A>
           <div className="search">?</div>
           <Dropdown label={dashboard.label} links={dashboard.links} />
           <Dropdown label={training.label} links={training.links} />
-          <Dropdown label={training.label} links={training.links} />
+          <Dropdown label={explore.label} links={explore.links} />
         </LinkBlock>
         <div className="right"></div>
       </nav>
@@ -45,6 +48,19 @@ const training = {
   ],
 };
 
+const explore = {
+  label: {
+    title: 'Explore',
+    url: '#',
+  },
+  links: [
+    { title: 'One', url: '#' },
+    { title: 'Two', url: '#' },
+    { title: 'Three', url: '#' },
+    { title: 'Four', url: '#' },
+  ],
+};
+
 export default index;
 
 const Wrapper = styled.div`
@@ -65,18 +81,14 @@ const Wrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    // border: 1px solid green;
-
-    .left {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
   }
 `;
 
 const LinkBlock = styled.div`
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   & > * {
     margin-right: 2.5rem;
   }

@@ -5,14 +5,21 @@ export const DropdownOption = (props) => {
   const { title, url } = props;
 
   if (!title) return null;
-  return <Li key={title}>{url ? <A href={url}>{title}</A> : <>{title}</>}</Li>;
+  return (
+    <Li key={title} data-testid="dropdown-option">
+      {url ? <A link={url}>{title}</A> : <>{title}</>}
+    </Li>
+  );
 };
 
 const Li = styled.li`
+  width: 100%;
   list-style: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 0rem 1rem 1rem;
+  margin: 0;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.greyMid};
+  :hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors?.greyMid};
   }
 `;

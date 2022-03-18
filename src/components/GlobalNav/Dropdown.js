@@ -5,15 +5,16 @@ import { A } from '../Globals/A';
 export const Dropdown = (props) => {
   const { label, links } = props;
 
+  if (!label || !links) return null;
   return (
     <Wrapper>
-      <A href={label.url}>{label.title}</A>
-      <ul className="options">
+      <A link={label.url}>{label.title}</A>
+      <Ul className="options">
         {links &&
           links.map((el) => (
             <DropdownOption title={el.title} url={el.url} key={el.title} />
           ))}
-      </ul>
+      </Ul>
     </Wrapper>
   );
 };
@@ -23,39 +24,48 @@ const Wrapper = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 55px;
-  width: 100px;
+  height: 100%;
+  width: fit-content;
 
   & > A {
+    font-size: ${({ theme }) => theme.fontSize?.normal};
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
-    color: ${({ theme }) => theme.colors.black};
-    padding-left: 1rem;
-  }
-
-  & > ul {
-    position: absolute;
-    top: 1.5rem;
-    display: none;
+    color: ${({ theme }) => theme.colors?.black};
+    padding: 0 1rem;
+    border-top: 1px solid ${({ theme }) => theme.colors?.white};
+    border-right: 1px solid ${({ theme }) => theme.colors?.white};
+    border-left: 1px solid ${({ theme }) => theme.colors?.white};
   }
 
   :hover {
     & > A {
-      color: ${({ theme }) => theme.colors.orange};
-      background-color: ${({ theme }) => theme.colors.white};
-      border-top: 1px solid ${({ theme }) => theme.colors.greyMid};
-      border-right: 1px solid ${({ theme }) => theme.colors.greyMid};
-      border-left: 1px solid ${({ theme }) => theme.colors.greyMid};
+      color: ${({ theme }) => theme.colors?.orange};
+      background-color: ${({ theme }) => theme.colors?.white};
+      border-top: 1px solid ${({ theme }) => theme.colors?.greyMid};
+      border-right: 1px solid ${({ theme }) => theme.colors?.greyMid};
+      border-left: 1px solid ${({ theme }) => theme.colors?.greyMid};
     }
 
     & > ul {
-      display: inline-block;
-      background-color: ${({ theme }) => theme.colors.white};
-      border-right: 1px solid ${({ theme }) => theme.colors.greyMid};
-      border-bottom: 1px solid ${({ theme }) => theme.colors.greyMid};
-      border-left: 1px solid ${({ theme }) => theme.colors.greyMid};
+      display: flex;
+      width: 200px;
+      flex-direction: column;
+      position: absolute;
+      top: 55px;
+      background-color: ${({ theme }) => theme.colors?.white};
+      border-right: 1px solid ${({ theme }) => theme.colors?.greyMid};
+      border-bottom: 1px solid ${({ theme }) => theme.colors?.greyMid};
+      border-left: 1px solid ${({ theme }) => theme.colors?.greyMid};
     }
   }
+`;
+
+const Ul = styled.ul`
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 `;
