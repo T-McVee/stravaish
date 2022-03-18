@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 
-export const A = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+export const A = (props) => {
+  const { link, children } = props;
+  return (
+    <Wrapper href={link} data-testid="link">
+      {children}
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors?.orange};
 
   &:hover {
     cursor: pointer;
   }
 
   li > & {
-    color: ${({ theme }) => theme.colors.black};
-
-    :hover {
-      background-color: ${({ theme }) => theme.colors.greyMid};
-    }
+    color: ${({ theme }) => theme.colors?.black};
   }
 `;
