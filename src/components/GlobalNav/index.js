@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import { Dropdown } from './Dropdown';
 import { Logo } from './Logo';
 import { A } from '../Globals/A';
+import { Container } from '../Globals/Container';
+import { Button } from '../Globals/Button';
 
 const index = () => {
   return (
-    <Wrapper className="wrapper">
+    <Wrapper>
       <nav>
-        <LinkBlock>
+        <Container height="100%">
           <A>
             <Logo>STRAVAish</Logo>
           </A>
@@ -15,8 +17,14 @@ const index = () => {
           <Dropdown label={dashboard.label} links={dashboard.links} />
           <Dropdown label={training.label} links={training.links} />
           <Dropdown label={explore.label} links={explore.links} />
-        </LinkBlock>
-        <div className="right"></div>
+        </Container>
+        <Container height="100%">
+          <Button>Subscribe</Button>
+          <span>alerts</span>
+          {/* needs to open to the left */}
+          <Dropdown label={profile.label} links={profile.links} />
+          <span>+</span>
+        </Container>
       </nav>
     </Wrapper>
   );
@@ -61,6 +69,19 @@ const explore = {
   ],
 };
 
+const profile = {
+  label: {
+    title: 'Profile',
+    url: '#',
+  },
+  links: [
+    { title: 'One', url: '#' },
+    { title: 'Two', url: '#' },
+    { title: 'Three', url: '#' },
+    { title: 'Four', url: '#' },
+  ],
+};
+
 export default index;
 
 const Wrapper = styled.div`
@@ -76,6 +97,7 @@ const Wrapper = styled.div`
 
   nav {
     width: 100%;
+    height: 55px;
     max-width: 1218px;
     display: flex;
     flex-direction: row;
@@ -85,7 +107,7 @@ const Wrapper = styled.div`
 `;
 
 const LinkBlock = styled.div`
-  height: 55px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
